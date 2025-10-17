@@ -1,626 +1,202 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Dhanteras</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #0c0a06 0%, #2c1b05 100%);
-            color: #ffd700;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 10px;
-            overflow-x: hidden;
-        }
-        
-        .credit-line {
-            text-align: center;
-            color: #ffedb3;
-            font-size: 0.9rem;
-            margin: 5px 0;
-            padding: 5px;
-            background: rgba(255, 215, 0, 0.1);
-            border-radius: 8px;
-            width: 100%;
-            max-width: 500px;
-        }
-        
-        .banner-ad {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            margin: 5px 0;
-            min-height: 60px;
-            background: rgba(255, 215, 0, 0.05);
-            border: 1px dashed #ffd700;
-            border-radius: 8px;
-            align-items: center;
-        }
-        
-        .ad-placeholder {
-            color: #ffd700;
-            font-weight: bold;
-            text-align: center;
-            padding: 10px;
-        }
-        
-        .container {
-            max-width: 500px;
-            width: 100%;
-            text-align: center;
-            background: rgba(30, 15, 5, 0.9);
-            border-radius: 20px;
-            padding: 25px;
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
-            border: 2px solid #ffd700;
-            position: relative;
-            overflow: hidden;
-            margin: 10px 0;
-        }
-        
-        .festival-gif {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 15px;
-            margin-bottom: 15px;
-            border: 2px solid #ffd700;
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
-        }
-        
-        .header {
-            margin-bottom: 20px;
-        }
-        
-        h1 {
-            font-size: 2.8rem;
-            margin-bottom: 10px;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
-            color: #ffd700;
-            font-weight: bold;
-            letter-spacing: 2px;
-            background: linear-gradient(to right, #ffd700, #ffed4e, #ffd700);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .subtitle {
-            font-size: 1.2rem;
-            color: #ffedb3;
-            margin-bottom: 20px;
-        }
-        
-        .gold-coins {
-            position: relative;
-            height: 120px;
-            margin: 20px 0;
-        }
-        
-        .coin {
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            background: radial-gradient(circle at 30% 30%, #ffd700, #daa520);
-            border-radius: 50%;
-            box-shadow: 0 0 15px #ffd700;
-            animation: fall linear infinite;
-        }
-        
-        .coin:before {
-            content: "₹";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: #8b6914;
-            font-weight: bold;
-            font-size: 20px;
-        }
-        
-        @keyframes fall {
-            to {
-                transform: translateY(100vh);
-            }
-        }
-        
-        .message {
-            background: rgba(255, 215, 0, 0.1);
-            border-radius: 15px;
-            padding: 20px;
-            margin: 25px 0;
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            font-size: 1.1rem;
-            line-height: 1.6;
-            text-align: center;
-            position: relative;
-        }
-        
-        .message:before {
-            content: "";
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 40px;
-            height: 40px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffd700"><path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18zM18 14H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>') no-repeat center;
-            background-size: contain;
-        }
-        
-        .sender-info {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            margin: 20px 0;
-            padding: 15px;
-            background: rgba(139, 105, 20, 0.2);
-            border-radius: 15px;
-        }
-        
-        .sender-photo {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            border: 2px solid #ffd700;
-            object-fit: cover;
-            background: #2c1b05;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            color: #ffd700;
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .sender-details {
-            text-align: left;
-        }
-        
-        .sender-name {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #ffed4e;
-        }
-        
-        .sender-text {
-            font-size: 0.9rem;
-            color: #ffedb3;
-        }
-        
-        .personalization {
-            margin-top: 30px;
-            padding: 20px;
-            background: rgba(139, 105, 20, 0.2);
-            border-radius: 15px;
-        }
-        
-        .input-group {
-            margin-bottom: 15px;
-            text-align: left;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: #ffedb3;
-        }
-        
-        input {
-            width: 100%;
-            padding: 12px 15px;
-            border-radius: 10px;
-            border: 1px solid #ffd700;
-            background: rgba(20, 10, 0, 0.7);
-            color: #ffd700;
-            font-size: 1rem;
-        }
-        
-        input::placeholder {
-            color: #daa520;
-        }
-        
-        .btn {
-            background: linear-gradient(to right, #ffd700, #daa520);
-            color: #1a1a1a;
-            border: none;
-            padding: 14px 25px;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin-top: 10px;
-            width: 100%;
-        }
-        
-        .btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
-        }
-        
-        .share-section {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px dashed #ffd700;
-        }
-        
-        .share-buttons {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-        }
-        
-        .share-btn {
-            flex: 1;
-            background: linear-gradient(to right, #25D366, #128C7E);
-            color: white;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 12px 15px;
-            border-radius: 10px;
-            font-weight: bold;
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-        
-        .share-btn.instagram {
-            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
-        }
-        
-        .footer {
-            margin-top: 30px;
-            font-size: 0.9rem;
-            color: #daa520;
-            text-align: center;
-        }
-        
-        .diya {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            width: 50px;
-            height: 50px;
-            background: radial-gradient(circle, #ff4500, #8b0000);
-            border-radius: 50% 50% 40% 40%;
-            box-shadow: 0 0 20px #ff4500;
-            z-index: 1;
-        }
-        
-        .diya:before {
-            content: "";
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 10px;
-            height: 20px;
-            background: #ffd700;
-            border-radius: 50% 50% 20% 20%;
-            box-shadow: 0 0 15px #ffd700;
-        }
-        
-        .hidden {
-            display: none;
-        }
-        
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            .container {
-                padding: 15px;
-            }
-            
-            .festival-gif {
-                height: 200px;
-            }
-            
-            .sender-info {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .sender-details {
-                text-align: center;
-            }
-            
-            .banner-ad {
-                transform: scale(0.85);
-                margin: 2px 0;
-            }
-            
-            .share-buttons {
-                flex-direction: column;
-            }
-            
-            .credit-line {
-                font-size: 0.8rem;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Dhanteras</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+body{background:linear-gradient(135deg,#0c0a06 0%,#2c1b05 100%);color:#ffd700;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:10px;overflow-x:hidden;}
+.credit-line{text-align:center;color:#ffedb3;font-size:0.9rem;margin:5px 0;padding:5px;background:rgba(255,215,0,0.1);border-radius:8px;width:100%;max-width:500px;}
+.banner-ad{display:flex;justify-content:center;width:100%;margin:5px 0;min-height:60px;background:rgba(255,215,0,0.05);border:1px dashed #ffd700;border-radius:8px;align-items:center;}
+.ad-placeholder{color:#ffd700;font-weight:bold;text-align:center;padding:10px;display:none;}
+.container{max-width:500px;width:100%;text-align:center;background:rgba(30,15,5,0.9);border-radius:20px;padding:25px;box-shadow:0 10px 30px rgba(255,215,0,0.3);border:2px solid #ffd700;position:relative;overflow:hidden;margin:10px 0;}
+.festival-gif{width:100%;height:250px;object-fit:cover;border-radius:15px;margin-bottom:15px;border:2px solid #ffd700;box-shadow:0 5px 15px rgba(255,215,0,0.4);}
+.header{margin-bottom:20px;}
+h1{font-size:2.8rem;margin-bottom:10px;text-shadow:0 0 10px rgba(255,215,0,0.7);color:#ffd700;font-weight:bold;letter-spacing:2px;background:linear-gradient(to right,#ffd700,#ffed4e,#ffd700);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.subtitle{font-size:1.2rem;color:#ffedb3;margin-bottom:20px;}
+.gold-coins{position:relative;height:120px;margin:20px 0;}
+.coin{position:absolute;width:40px;height:40px;background:radial-gradient(circle at 30% 30%,#ffd700,#daa520);border-radius:50%;box-shadow:0 0 15px #ffd700;animation:fall linear infinite;}
+.coin:before{content:"₹";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#8b6914;font-weight:bold;font-size:20px;}
+@keyframes fall{to{transform:translateY(100vh);}}
+.message{background:rgba(255,215,0,0.1);border-radius:15px;padding:20px;margin:25px 0;border:1px solid rgba(255,215,0,0.3);font-size:1.1rem;line-height:1.6;text-align:center;position:relative;}
+.sender-info{display:flex;align-items:center;justify-content:center;gap:15px;margin:20px 0;padding:15px;background:rgba(139,105,20,0.2);border-radius:15px;}
+.sender-photo{width:70px;height:70px;border-radius:50%;border:2px solid #ffd700;object-fit:cover;background:#2c1b05;display:flex;align-items:center;justify-content:center;font-size:24px;color:#ffd700;background-size:cover;background-position:center;}
+.sender-details{text-align:left;}
+.sender-name{font-size:1.3rem;font-weight:bold;color:#ffed4e;}
+.sender-text{font-size:0.9rem;color:#ffedb3;}
+.personalization{margin-top:30px;padding:20px;background:rgba(139,105,20,0.2);border-radius:15px;}
+.input-group{margin-bottom:15px;text-align:left;}
+label{display:block;margin-bottom:8px;font-weight:500;color:#ffedb3;}
+input{width:100%;padding:12px 15px;border-radius:10px;border:1px solid #ffd700;background:rgba(20,10,0,0.7);color:#ffd700;font-size:1rem;}
+input::placeholder{color:#daa520;}
+.btn{background:linear-gradient(to right,#ffd700,#daa520);color:#1a1a1a;border:none;padding:14px 25px;border-radius:10px;font-size:1.1rem;font-weight:bold;cursor:pointer;transition:all 0.3s;margin-top:10px;width:100%;}
+.btn:hover{transform:scale(1.05);box-shadow:0 5px 15px rgba(255,215,0,0.4);}
+.share-section{margin-top:30px;padding-top:20px;border-top:1px dashed #ffd700;}
+.share-btn{background:linear-gradient(to right,#25D366,#128C7E);color:white;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:12px 25px;border-radius:10px;font-weight:bold;text-decoration:none;margin-top:15px;width:100%;border:none;cursor:pointer;font-size:1.1rem;}
+.footer{margin-top:30px;font-size:0.9rem;color:#daa520;text-align:center;}
+.diya{position:absolute;bottom:10px;right:10px;width:50px;height:50px;background:radial-gradient(circle,#ff4500,#8b0000);border-radius:50% 50% 40% 40%;box-shadow:0 0 20px #ff4500;z-index:1;}
+.diya:before{content:"";position:absolute;top:-15px;left:50%;transform:translateX(-50%);width:10px;height:20px;background:#ffd700;border-radius:50% 50% 20% 20%;box-shadow:0 0 15px #ffd700;}
+.hidden{display:none;}
+@media(max-width:480px){h1{font-size:2.2rem;}.container{padding:15px;}.festival-gif{height:200px;}.sender-info{flex-direction:column;text-align:center;}.sender-details{text-align:center;}.banner-ad{transform:scale(0.85);margin:2px 0;}.credit-line{font-size:0.8rem;}}
+</style>
 </head>
 <body>
-    <!-- Credit Line -->
-    <div class="credit-line">
-        Created by "Ritesh Kale KHCA"
-    </div>
 
-    <!-- Top Banner Ad -->
-    <div class="banner-ad">
-        <!-- Active Ad Code -->
-        <script type="text/javascript">
-            atOptions = {
-                'key' : '738665f713380a8ddde9b8a6af8bec3f',
-                'format' : 'iframe',
-                'height' : 60,
-                'width' : 468,
-                'params' : {}
-            };
-        </script>
-        <script type="text/javascript" src="//www.highperformanceformat.com/738665f713380a8ddde9b8a6af8bec3f/invoke.js"></script>
-        
-        <!-- Fallback Placeholder (shows if ad fails) -->
-        <div class="ad-placeholder" id="topAdPlaceholder">
-            🪙 Dhanteras Special Offers - Gold & Jewelry Deals! 🪙
-        </div>
-    </div>
+<!-- Credit Line -->
+<div class="credit-line">
+Created by "Ritesh Kale - KHCA"
+</div>
 
-    <div class="container">
-        <!-- Square Dhanteras GIF with proper sizing -->
-        <img src="Dhanteras.gif" alt="Dhanteras Celebration" class="festival-gif">
-        
-        <div class="header">
-            <h1>Happy Dhanteras</h1>
-            <div class="subtitle">धनतेरस की हार्दिक शुभकामनाएं</div>
-        </div>
-        
-        <div class="gold-coins" id="goldCoins">
-            <!-- Gold coins will be generated by JavaScript -->
-        </div>
-        
-        <!-- Received Greeting View -->
-        <div id="receivedView">
-            <div class="message">
-                <p>इस पावन अवसर पर, आपके जीवन में सुख, समृद्धि और धन की वर्षा हो।<br>
-                आपका घर हमेशा खुशियों से भरा रहे।<br>
-                धनतेरस की हार्दिक शुभकामनाएं!</p>
-            </div>
-            
-            <div class="sender-info">
-                <div class="sender-photo" id="receivedPhoto">
-                    <span>👤</span>
-                </div>
-                <div class="sender-details">
-                    <div class="sender-name" id="receivedName">मित्र</div>
-                    <div class="sender-text">ने यह शुभकामना भेजी है</div>
-                </div>
-            </div>
-            
-            <div class="personalization">
-                <h3>अपनी शुभकामनाएं व्यक्तिगत करें</h3>
-                
-                <div class="input-group">
-                    <label for="userName">आपका नाम:</label>
-                    <input type="text" id="userName" placeholder="अपना नाम दर्ज करें">
-                </div>
-                
-                <div class="input-group">
-                    <label for="userPhoto">अपनी फोटो (वैकल्पिक):</label>
-                    <input type="file" id="userPhoto" accept="image/*">
-                </div>
-                
-                <button class="btn" id="createGreetingBtn">अपनी ग्रीटिंग बनाएं</button>
-            </div>
-        </div>
-        
-        <!-- Create Greeting View -->
-        <div id="createView" class="hidden">
-            <div class="message">
-                <p>इस पावन अवसर पर, आपके जीवन में सुख, समृद्धि और धन की वर्षा हो।<br>
-                आपका घर हमेशा खुशियों से भरा रहे।<br>
-                धनतेरस की हार्दिक शुभकामनाएं!</p>
-            </div>
-            
-            <div class="sender-info">
-                <div class="sender-photo" id="myPhotoPreview">
-                    <span>👤</span>
-                </div>
-                <div class="sender-details">
-                    <div class="sender-name" id="myNamePreview">आपका नाम</div>
-                    <div class="sender-text">ने यह शुभकामना भेजी है</div>
-                </div>
-            </div>
-            
-            <div class="share-section">
-                <p>अपनी व्यक्तिगत ग्रीटिंग दोस्तों और परिवार के साथ साझा करें</p>
-                <div class="share-buttons">
-                    <a href="#" class="share-btn" id="whatsappShareBtn">
-                        <span>📱</span> WhatsApp
-                    </a>
-                    <a href="#" class="share-btn instagram" id="instagramShareBtn">
-                        <span>📷</span> Instagram
-                    </a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="diya"></div>
-    </div>
-    
-    <div class="footer">
-        धन, समृद्धि और सुख-शांति की कामना के साथ
-    </div>
+<!-- Top Banner Ad -->
+<div class="banner-ad">
+<script type="text/javascript">
+atOptions = {'key':'738665f713380a8ddde9b8a6af8bec3f','format':'iframe','height':60,'width':468,'params':{}};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/738665f713380a8ddde9b8a6af8bec3f/invoke.js"></script>
+<div class="ad-placeholder" id="topAdPlaceholder">🪙 Dhanteras Special Offers - Gold & Jewelry Deals! 🪙</div>
+</div>
 
-    <!-- Bottom Banner Ad -->
-    <div class="banner-ad">
-        <!-- Active Ad Code -->
-        <script type="text/javascript">
-            atOptions = {
-                'key' : '738665f713380a8ddde9b8a6af8bec3f',
-                'format' : 'iframe',
-                'height' : 60,
-                'width' : 468,
-                'params' : {}
-            };
-        </script>
-        <script type="text/javascript" src="//www.highperformanceformat.com/738665f713380a8ddde9b8a6af8bec3f/invoke.js"></script>
-        
-        <!-- Fallback Placeholder (shows if ad fails) -->
-        <div class="ad-placeholder" id="bottomAdPlaceholder">
-            💎 Exclusive Dhanteras Discounts - Shop Now! 💎
-        </div>
-    </div>
+<div class="container">
+<img src="Dhanteras.gif" alt="Dhanteras Celebration" class="festival-gif">
 
-    <script>
-        // Check if ads loaded successfully
-        setTimeout(function() {
-            const topAd = document.querySelector('.banner-ad iframe');
-            const bottomAd = document.querySelectorAll('.banner-ad iframe')[1];
-            
-            if (!topAd || topAd.offsetHeight === 0) {
-                document.getElementById('topAdPlaceholder').style.display = 'block';
-            }
-            
-            if (!bottomAd || bottomAd.offsetHeight === 0) {
-                document.getElementById('bottomAdPlaceholder').style.display = 'block';
-            }
-        }, 2000);
+<div class="header">
+<h1>Happy Dhanteras</h1>
+<div class="subtitle">धनतेरस की हार्दिक शुभकामनाएं</div>
+</div>
 
-        // URL parameters handling
-        const urlParams = new URLSearchParams(window.location.search);
-        const senderName = urlParams.get('from');
-        const senderPhoto = urlParams.get('photo');
-        
-        // Check if this is a received greeting
-        if (senderName) {
-            document.getElementById('receivedName').textContent = senderName;
-            if (senderPhoto) {
-                document.getElementById('receivedPhoto').innerHTML = '';
-                document.getElementById('receivedPhoto').style.backgroundImage = `url(${senderPhoto})`;
-            }
-        }
-        
-        // Create falling gold coins
-        const goldCoinsContainer = document.getElementById('goldCoins');
-        
-        function createCoin() {
-            const coin = document.createElement('div');
-            coin.classList.add('coin');
-            
-            const leftPos = Math.random() * 100;
-            const duration = 3 + Math.random() * 5;
-            const delay = Math.random() * 5;
-            const size = 30 + Math.random() * 20;
-            
-            coin.style.left = `${leftPos}%`;
-            coin.style.animationDuration = `${duration}s`;
-            coin.style.animationDelay = `${delay}s`;
-            coin.style.width = `${size}px`;
-            coin.style.height = `${size}px`;
-            
-            goldCoinsContainer.appendChild(coin);
-            
-            setTimeout(() => {
-                coin.remove();
-            }, (duration + delay) * 1000);
-        }
-        
-        for (let i = 0; i < 15; i++) {
-            createCoin();
-        }
-        
-        setInterval(createCoin, 800);
-        
-        // Update sender info in real-time
-        document.getElementById('userName').addEventListener('input', function() {
-            const userName = this.value.trim();
-            document.getElementById('myNamePreview').textContent = userName || 'आपका नाम';
-        });
-        
-        // Handle photo upload
-        let userPhotoData = '';
-        document.getElementById('userPhoto').addEventListener('change', function(e) {
-            const file = e.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    userPhotoData = e.target.result;
-                    const myPhotoPreview = document.getElementById('myPhotoPreview');
-                    myPhotoPreview.innerHTML = '';
-                    myPhotoPreview.style.backgroundImage = `url(${userPhotoData})`;
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-        
-        // Create greeting button functionality
-        document.getElementById('createGreetingBtn').addEventListener('click', function() {
-            const userName = document.getElementById('userName').value.trim();
-            
-            if (!userName) {
-                alert('कृपया अपना नाम दर्ज करें');
-                return;
-            }
-            
-            // Switch to create view
-            document.getElementById('receivedView').classList.add('hidden');
-            document.getElementById('createView').classList.remove('hidden');
-            
-            // Update preview
-            document.getElementById('myNamePreview').textContent = userName;
-            if (userPhotoData) {
-                document.getElementById('myPhotoPreview').style.backgroundImage = `url(${userPhotoData})`;
-            }
-        });
-        
-        // Share functionality
-        document.getElementById('whatsappShareBtn').addEventListener('click', function(e) {
-            e.preventDefault();
-            shareGreeting('whatsapp');
-        });
-        
-        document.getElementById('instagramShareBtn').addEventListener('click', function(e) {
-            e.preventDefault();
-            shareGreeting('instagram');
-        });
-        
-        function shareGreeting(platform) {
-            const userName = document.getElementById('userName').value.trim();
-            const currentUrl = window.location.href.split('?')[0];
-            const shareUrl = `${currentUrl}?from=${encodeURIComponent(userName)}${userPhotoData ? `&photo=${encodeURIComponent(userPhotoData)}` : ''}`;
-            
-            const message = `*${userName}* ने आपको Dhanteras की शुभकामनाएं भेजी हैं!\n\n` +
-                           `इस पावन अवसर पर, आपके जीवन में सुख, समृद्धि और धन की वर्षा हो।\n` +
-                           `आपका घर हमेशा खुशियों से भरा रहे।\n\n` +
-                           `धनतेरस की हार्दिक शुभकामनाएं!\n\n` +
-                           `अपनी ग्रीटिंग प्राप्त करें: ${shareUrl}`;
-            
-            if (platform === 'whatsapp') {
-                window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, '_blank');
-            } else if (platform === 'instagram') {
-                // For Instagram, we'll use a different approach since direct sharing is limited
-                alert('कृपया निम्न लिंक को कॉपी करके Instagram पर साझा करें:\n\n' + shareUrl);
-                navigator.clipboard.writeText(shareUrl).then(function() {
-                    alert('लिंक कॉपी हो गया है! अब आप इसे Instagram पर पेस्ट कर सकते हैं।');
-                });
-            }
-        }
-    </script>
+<div class="gold-coins" id="goldCoins"></div>
+
+<!-- Received Greeting View -->
+<div id="receivedView">
+<div class="message">
+<p>इस पावन अवसर पर, आपके जीवन में सुख, समृद्धि और धन की वर्षा हो।<br>आपका घर हमेशा खुशियों से भरा रहे।<br>धनतेरस की हार्दिक शुभकामनाएं!</p>
+</div>
+
+<div class="sender-info">
+<div class="sender-photo" id="receivedPhoto"><span>👤</span></div>
+<div class="sender-details">
+<div class="sender-name" id="receivedName">मित्र</div>
+<div class="sender-text">ने यह शुभकामना भेजी है</div>
+</div>
+</div>
+
+<div class="personalization">
+<h3>अपनी शुभकामनाएं व्यक्तिगत करें</h3>
+
+<div class="input-group">
+<label for="userName">आपका नाम:</label>
+<input type="text" id="userName" placeholder="अपना नाम दर्ज करें">
+</div>
+
+<div class="input-group">
+<label for="userPhoto">अपनी फोटो (वैकल्पिक):</label>
+<input type="file" id="userPhoto" accept="image/*">
+</div>
+
+<button class="btn" id="createGreetingBtn">अपनी ग्रीटिंग बनाएं</button>
+</div>
+</div>
+
+<!-- Create Greeting View -->
+<div id="createView" class="hidden">
+<div class="message">
+<p>इस पावन अवसर पर, आपके जीवन में सुख, समृद्धि और धन की वर्षा हो।<br>आपका घर हमेशा खुशियों से भरा रहे।<br>धनतेरस की हार्दिक शुभकामनाएं!</p>
+</div>
+
+<div class="sender-info">
+<div class="sender-photo" id="myPhotoPreview"><span>👤</span></div>
+<div class="sender-details">
+<div class="sender-name" id="myNamePreview">आपका नाम</div>
+<div class="sender-text">ने यह शुभकामना भेजी है</div>
+</div>
+</div>
+
+<div class="share-section">
+<p>अपनी व्यक्तिगत ग्रीटिंग दोस्तों और परिवार के साथ साझा करें</p>
+<button class="share-btn" id="whatsappShareBtn"><span>📱</span> WhatsApp पर शेयर करें</button>
+</div>
+</div>
+
+<div class="diya"></div>
+</div>
+
+<div class="footer">
+धन, समृद्धि और सुख-शांति की कामना के साथ
+</div>
+
+<!-- Bottom Banner Ad -->
+<div class="banner-ad">
+<script type="text/javascript">
+atOptions = {'key':'738665f713380a8ddde9b8a6af8bec3f','format':'iframe','height':60,'width':468,'params':{}};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/738665f713380a8ddde9b8a6af8bec3f/invoke.js"></script>
+<div class="ad-placeholder" id="bottomAdPlaceholder">💎 Exclusive Dhanteras Discounts - Shop Now! 💎</div>
+</div>
+
+<script>
+// Ads fallback
+setTimeout(function(){
+const topAd=document.querySelector('.banner-ad iframe');
+const bottomAd=document.querySelectorAll('.banner-ad iframe')[1];
+if(!topAd||topAd.offsetHeight===0){document.getElementById('topAdPlaceholder').style.display='block';}
+if(!bottomAd||bottomAd.offsetHeight===0){document.getElementById('bottomAdPlaceholder').style.display='block';}
+},2000);
+
+// URL parameters handling
+const urlParams=new URLSearchParams(window.location.search);
+const senderName=urlParams.get('from');
+const senderPhoto=urlParams.get('photo');
+if(senderName){
+document.getElementById('receivedName').textContent=senderName;
+if(senderPhoto){document.getElementById('receivedPhoto').innerHTML='';document.getElementById('receivedPhoto').style.backgroundImage=`url(${senderPhoto})`;}
+}
+
+// Gold coins animation
+const goldCoinsContainer=document.getElementById('goldCoins');
+function createCoin(){
+const coin=document.createElement('div');coin.classList.add('coin');
+const leftPos=Math.random()*100,duration=3+Math.random()*5,delay=Math.random()*5,size=30+Math.random()*20;
+coin.style.left=`${leftPos}%`;coin.style.animationDuration=`${duration}s`;coin.style.animationDelay=`${delay}s`;
+coin.style.width=`${size}px`;coin.style.height=`${size}px`;
+goldCoinsContainer.appendChild(coin);
+setTimeout(()=>{coin.remove();},(duration+delay)*1000);}
+for(let i=0;i<15;i++){createCoin();}
+setInterval(createCoin,800);
+
+// Real-time sender info
+document.getElementById('userName').addEventListener('input',function(){
+const userName=this.value.trim();document.getElementById('myNamePreview').textContent=userName||'आपका नाम';
+});
+
+// Photo upload
+let userPhotoData='';
+document.getElementById('userPhoto').addEventListener('change',function(e){
+const file=e.target.files[0];
+if(file){const reader=new FileReader();
+reader.onload=function(e){userPhotoData=e.target.result;const myPhotoPreview=document.getElementById('myPhotoPreview');myPhotoPreview.innerHTML='';myPhotoPreview.style.backgroundImage=`url(${userPhotoData})`;};
+reader.readAsDataURL(file);}
+});
+
+// Create greeting button
+document.getElementById('createGreetingBtn').addEventListener('click',function(){
+const userName=document.getElementById('userName').value.trim();
+if(!userName){alert('कृपया अपना नाम दर्ज करें');return;}
+document.getElementById('receivedView').classList.add('hidden');
+document.getElementById('createView').classList.remove('hidden');
+document.getElementById('myNamePreview').textContent=userName;
+if(userPhotoData){document.getElementById('myPhotoPreview').style.backgroundImage=`url(${userPhotoData})`;}
+});
+
+// WhatsApp Share - Fixed
+document.getElementById('whatsappShareBtn').addEventListener('click',function(){
+const userName=document.getElementById('userName').value.trim();
+if(!userName){alert('कृपया पहले अपना नाम दर्ज करें');return;}
+const baseUrl=window.location.origin+window.location.pathname;
+const shareUrl=`${baseUrl}?from=${encodeURIComponent(userName)}`;
+const message=`*${userName}* ने आपको Dhanteras की शुभकामनाएं भेजी हैं! 🪙\n\nइस पावन अवसर पर, आपके जीवन में सुख, समृद्धि और धन की वर्षा हो।\nआपका घर हमेशा खुशियों से भरा रहे।\n\nधनतेरस की हार्दिक शुभकामनाएं! 💫\n\nअपनी ग्रीटिंग प्राप्त करें: ${shareUrl}`;
+window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`,'_blank');
+});
+</script>
 </body>
 </html>
