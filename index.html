@@ -1,202 +1,374 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="hi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Dhanteras</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>शुभ धनतेरस — Personalized Greeting</title>
+<meta name="author" content="Ritesh Kale - KHCA" />
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
-body{background:linear-gradient(135deg,#0c0a06 0%,#2c1b05 100%);color:#ffd700;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:10px;overflow-x:hidden;}
-.credit-line{text-align:center;color:#ffedb3;font-size:0.9rem;margin:5px 0;padding:5px;background:rgba(255,215,0,0.1);border-radius:8px;width:100%;max-width:500px;}
-.banner-ad{display:flex;justify-content:center;width:100%;margin:5px 0;min-height:60px;background:rgba(255,215,0,0.05);border:1px dashed #ffd700;border-radius:8px;align-items:center;}
-.ad-placeholder{color:#ffd700;font-weight:bold;text-align:center;padding:10px;display:none;}
-.container{max-width:500px;width:100%;text-align:center;background:rgba(30,15,5,0.9);border-radius:20px;padding:25px;box-shadow:0 10px 30px rgba(255,215,0,0.3);border:2px solid #ffd700;position:relative;overflow:hidden;margin:10px 0;}
-.festival-gif{width:100%;height:250px;object-fit:cover;border-radius:15px;margin-bottom:15px;border:2px solid #ffd700;box-shadow:0 5px 15px rgba(255,215,0,0.4);}
-.header{margin-bottom:20px;}
-h1{font-size:2.8rem;margin-bottom:10px;text-shadow:0 0 10px rgba(255,215,0,0.7);color:#ffd700;font-weight:bold;letter-spacing:2px;background:linear-gradient(to right,#ffd700,#ffed4e,#ffd700);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.subtitle{font-size:1.2rem;color:#ffedb3;margin-bottom:20px;}
-.gold-coins{position:relative;height:120px;margin:20px 0;}
-.coin{position:absolute;width:40px;height:40px;background:radial-gradient(circle at 30% 30%,#ffd700,#daa520);border-radius:50%;box-shadow:0 0 15px #ffd700;animation:fall linear infinite;}
-.coin:before{content:"₹";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#8b6914;font-weight:bold;font-size:20px;}
-@keyframes fall{to{transform:translateY(100vh);}}
-.message{background:rgba(255,215,0,0.1);border-radius:15px;padding:20px;margin:25px 0;border:1px solid rgba(255,215,0,0.3);font-size:1.1rem;line-height:1.6;text-align:center;position:relative;}
-.sender-info{display:flex;align-items:center;justify-content:center;gap:15px;margin:20px 0;padding:15px;background:rgba(139,105,20,0.2);border-radius:15px;}
-.sender-photo{width:70px;height:70px;border-radius:50%;border:2px solid #ffd700;object-fit:cover;background:#2c1b05;display:flex;align-items:center;justify-content:center;font-size:24px;color:#ffd700;background-size:cover;background-position:center;}
-.sender-details{text-align:left;}
-.sender-name{font-size:1.3rem;font-weight:bold;color:#ffed4e;}
-.sender-text{font-size:0.9rem;color:#ffedb3;}
-.personalization{margin-top:30px;padding:20px;background:rgba(139,105,20,0.2);border-radius:15px;}
-.input-group{margin-bottom:15px;text-align:left;}
-label{display:block;margin-bottom:8px;font-weight:500;color:#ffedb3;}
-input{width:100%;padding:12px 15px;border-radius:10px;border:1px solid #ffd700;background:rgba(20,10,0,0.7);color:#ffd700;font-size:1rem;}
-input::placeholder{color:#daa520;}
-.btn{background:linear-gradient(to right,#ffd700,#daa520);color:#1a1a1a;border:none;padding:14px 25px;border-radius:10px;font-size:1.1rem;font-weight:bold;cursor:pointer;transition:all 0.3s;margin-top:10px;width:100%;}
-.btn:hover{transform:scale(1.05);box-shadow:0 5px 15px rgba(255,215,0,0.4);}
-.share-section{margin-top:30px;padding-top:20px;border-top:1px dashed #ffd700;}
-.share-btn{background:linear-gradient(to right,#25D366,#128C7E);color:white;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:12px 25px;border-radius:10px;font-weight:bold;text-decoration:none;margin-top:15px;width:100%;border:none;cursor:pointer;font-size:1.1rem;}
-.footer{margin-top:30px;font-size:0.9rem;color:#daa520;text-align:center;}
-.diya{position:absolute;bottom:10px;right:10px;width:50px;height:50px;background:radial-gradient(circle,#ff4500,#8b0000);border-radius:50% 50% 40% 40%;box-shadow:0 0 20px #ff4500;z-index:1;}
-.diya:before{content:"";position:absolute;top:-15px;left:50%;transform:translateX(-50%);width:10px;height:20px;background:#ffd700;border-radius:50% 50% 20% 20%;box-shadow:0 0 15px #ffd700;}
-.hidden{display:none;}
-@media(max-width:480px){h1{font-size:2.2rem;}.container{padding:15px;}.festival-gif{height:200px;}.sender-info{flex-direction:column;text-align:center;}.sender-details{text-align:center;}.banner-ad{transform:scale(0.85);margin:2px 0;}.credit-line{font-size:0.8rem;}}
+  /* ---------- Mobile-first styling ---------- */
+  :root{
+    --bg1:#071226;
+    --gold:#d19b17;
+    --muted:#e6d9c0;
+    --card:#0b1724;
+    --glass: rgba(255,255,255,0.03);
+    --maxw:760px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family: "Noto Sans", "Segoe UI", Roboto, Arial, sans-serif;
+    background: radial-gradient(800px 400px at 10% 5%, rgba(209,155,23,0.04), transparent 6%), linear-gradient(180deg,#041022 0%, #061428 100%);
+    color:#fff;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    padding:10px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .credit-line{width:100%;max-width:520px;margin:6px 0;text-align:center;color:#f0dec0;padding:6px;border-radius:8px;background:rgba(209,155,23,0.04);font-size:13px}
+  .page{width:100%;max-width:520px}
+  .banner-ad{width:100%;display:flex;justify-content:center;align-items:center;min-height:60px;margin:6px 0;position:relative}
+  .ad-fallback{display:none;color:var(--gold);font-weight:700;border:1px dashed rgba(209,155,23,0.12);padding:10px;border-radius:8px;background:rgba(255,255,255,0.01)}
+  .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;padding:16px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 18px 50px rgba(0,0,0,0.6);overflow:hidden}
+  .gif-wrap{display:flex;justify-content:center;align-items:center;border-radius:12px;overflow:hidden;background:linear-gradient(135deg,#04111a,#061428);border:1px solid rgba(255,255,255,0.02);width:100%;height:260px}
+  .gif-wrap img{width:160px;height:160px;object-fit:cover;border-radius:12px;box-shadow:0 6px 22px rgba(0,0,0,0.6)}
+  .header{margin-top:12px;text-align:center}
+  h1{font-size:26px;color:#fff7df;margin-bottom:6px;letter-spacing:0.6px;text-shadow:0 8px 30px rgba(0,0,0,0.6)}
+  .subtitle{font-size:13px;color:#e9dcc2;margin-bottom:10px}
+  .coins{position:relative;height:110px;margin:10px 0;pointer-events:none}
+  .coin{position:absolute;border-radius:50%;animation:fall linear infinite;box-shadow:0 6px 20px rgba(0,0,0,0.4);display:flex;align-items:center;justify-content:center;font-weight:700;color:#8b6914}
+  @keyframes fall{to{transform:translateY(120vh) rotate(720deg);opacity:.02}}
+  .message{background:rgba(255,255,255,0.02);padding:14px;border-radius:10px;border:1px solid rgba(255,255,255,0.02);color:#efe6c8;margin:10px 0;text-align:center;line-height:1.5}
+  .sender-row{display:flex;gap:12px;align-items:center;justify-content:center;margin:12px 0;padding:10px;border-radius:10px;background:linear-gradient(180deg, rgba(209,155,23,0.02), rgba(255,255,255,0.01))}
+  .sender-photo{width:78px;height:78px;border-radius:50%;overflow:hidden;border:4px solid rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:center;background:linear-gradient(90deg,#291505,#120a02);box-shadow:0 10px 30px rgba(0,0,0,0.6)}
+  .sender-photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .sender-info{display:flex;flex-direction:column;align-items:flex-start}
+  .sender-name{font-weight:800;color:#ffefc6;font-size:16px}
+  .sender-sub{font-size:13px;color:#e6d8be}
+  .personalize{margin-top:10px;padding:12px;border-radius:10px;background:rgba(255,255,255,0.01);border:1px solid rgba(255,255,255,0.02)}
+  label{display:block;color:#ead8a3;font-weight:600;font-size:13px;margin-bottom:6px}
+  input[type="text"], input[type="file"]{width:100%;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:rgba(20,12,6,0.5);color:#fff;outline:none}
+  .btn{display:inline-block;width:100%;padding:12px;border-radius:10px;border:none;background:linear-gradient(90deg,var(--gold),#ffd24a);color:#111;font-weight:800;cursor:pointer;margin-top:10px;box-shadow:0 10px 28px rgba(209,155,23,0.12)}
+  .share-btn{background:linear-gradient(90deg,#25D366,#128C7E);color:#fff}
+  .small-btn{padding:8px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:#e6d8be}
+  .footer{margin-top:12px;text-align:center;color:#e6c88a;font-size:13px}
+  .creator{margin-top:8px;color:#d9c79a;font-size:12px;text-align:center}
+
+  /* responsive tweaks */
+  @media(min-width:760px){
+    .gif-wrap img{width:220px;height:220px}
+    .gif-wrap{height:300px}
+    h1{font-size:32px}
+  }
+  @media(max-width:420px){
+    .gif-wrap img{width:140px;height:140px}
+    .sender-photo{width:64px;height:64px}
+  }
 </style>
 </head>
 <body>
+  <div class="credit-line">Created by "Ritesh Kale - KHCA"</div>
 
-<!-- Credit Line -->
-<div class="credit-line">
-Created by "Ritesh Kale - KHCA"
-</div>
+  <!-- TOP Ad container (script will be injected) -->
+  <div id="adTop" class="banner-ad" aria-hidden="true">
+    <div id="adTopFellBack" class="ad-fallback">🪙 Dhanteras Offers</div>
+  </div>
 
-<!-- Top Banner Ad -->
-<div class="banner-ad">
-<script type="text/javascript">
-atOptions = {'key':'738665f713380a8ddde9b8a6af8bec3f','format':'iframe','height':60,'width':468,'params':{}};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/738665f713380a8ddde9b8a6af8bec3f/invoke.js"></script>
-<div class="ad-placeholder" id="topAdPlaceholder">🪙 Dhanteras Special Offers - Gold & Jewelry Deals! 🪙</div>
-</div>
+  <div class="page">
+    <div class="card" role="main" aria-labelledby="mainTitle">
+      <div class="gif-wrap" aria-hidden="true">
+        <img id="dhanGif" src="Dhanteras.gif" alt="Dhanteras GIF"/>
+      </div>
 
-<div class="container">
-<img src="Dhanteras.gif" alt="Dhanteras Celebration" class="festival-gif">
+      <div class="header">
+        <h1 id="mainTitle">शुभ धनतेरस</h1>
+        <div class="subtitle">आपके लिए विशेष शुभकामनाएँ — शेयर करें और अपना नाम जोड़ें</div>
+      </div>
 
-<div class="header">
-<h1>Happy Dhanteras</h1>
-<div class="subtitle">धनतेरस की हार्दिक शुभकामनाएं</div>
-</div>
+      <div class="coins" id="coins"></div>
 
-<div class="gold-coins" id="goldCoins"></div>
+      <div id="receivedSection">
+        <div class="message" id="msgBox">
+          धन की वर्षा हो, लक्ष्मी का वास हो — आपका और आपके परिवार का कल्याण हो।<br>धनतेरस की हार्दिक शुभकामनाएँ!
+        </div>
 
-<!-- Received Greeting View -->
-<div id="receivedView">
-<div class="message">
-<p>इस पावन अवसर पर, आपके जीवन में सुख, समृद्धि और धन की वर्षा हो।<br>आपका घर हमेशा खुशियों से भरा रहे।<br>धनतेरस की हार्दिक शुभकामनाएं!</p>
-</div>
+        <div class="sender-row" aria-live="polite">
+          <div class="sender-photo" id="receivedPhoto" title="Sender photo">
+            <span id="receivedPhotoFallback" style="color:#d8caa6;font-weight:800;font-size:22px">👤</span>
+          </div>
+          <div class="sender-info">
+            <div class="sender-name" id="receivedName">आपके मित्र</div>
+            <div class="sender-sub">ने यह शुभकामना भेजी है</div>
+          </div>
+        </div>
 
-<div class="sender-info">
-<div class="sender-photo" id="receivedPhoto"><span>👤</span></div>
-<div class="sender-details">
-<div class="sender-name" id="receivedName">मित्र</div>
-<div class="sender-text">ने यह शुभकामना भेजी है</div>
-</div>
-</div>
+        <div class="personalize" id="personalize">
+          <label for="nameInput">अपना नाम डालें</label>
+          <input id="nameInput" type="text" placeholder="उदा. Kumar" />
 
-<div class="personalization">
-<h3>अपनी शुभकामनाएं व्यक्तिगत करें</h3>
+          <label for="photoInput" style="margin-top:10px">अपनी फोटो (वैकल्पिक)</label>
+          <input id="photoInput" type="file" accept="image/*" />
 
-<div class="input-group">
-<label for="userName">आपका नाम:</label>
-<input type="text" id="userName" placeholder="अपना नाम दर्ज करें">
-</div>
+          <button id="createBtn" class="btn">अपनी ग्रीटिंग बनाएं</button>
+        </div>
+      </div>
 
-<div class="input-group">
-<label for="userPhoto">अपनी फोटो (वैकल्पिक):</label>
-<input type="file" id="userPhoto" accept="image/*">
-</div>
+      <div id="createSection" class="hidden" aria-hidden="true">
+        <div class="message">
+          आपकी व्यक्तिगत ग्रीटिंग तैयार है — नीचे शेयर करें।
+        </div>
+        <div class="sender-row">
+          <div class="sender-photo" id="myPhotoPreview"><span style="color:#d8caa6;font-weight:800">👤</span></div>
+          <div class="sender-info">
+            <div class="sender-name" id="myNamePreview">आपका नाम</div>
+            <div class="sender-sub">ने यह शुभकामना भेजी है</div>
+          </div>
+        </div>
 
-<button class="btn" id="createGreetingBtn">अपनी ग्रीटिंग बनाएं</button>
-</div>
-</div>
+        <div style="display:flex;gap:8px;margin-top:8px">
+          <button id="shareWhatsApp" class="btn share-btn" style="flex:1">📱 WhatsApp पर शेयर करें</button>
+          <button id="copyLinkBtn" class="btn small-btn" style="width:120px">Link कॉपी करें</button>
+        </div>
 
-<!-- Create Greeting View -->
-<div id="createView" class="hidden">
-<div class="message">
-<p>इस पावन अवसर पर, आपके जीवन में सुख, समृद्धि और धन की वर्षा हो।<br>आपका घर हमेशा खुशियों से भरा रहे।<br>धनतेरस की हार्दिक शुभकामनाएं!</p>
-</div>
+        <div id="linkBox" style="margin-top:10px;display:none;word-break:break-all;color:#e9ddb8;font-size:13px;background:rgba(255,255,255,0.02);padding:8px;border-radius:8px"></div>
+      </div>
 
-<div class="sender-info">
-<div class="sender-photo" id="myPhotoPreview"><span>👤</span></div>
-<div class="sender-details">
-<div class="sender-name" id="myNamePreview">आपका नाम</div>
-<div class="sender-text">ने यह शुभकामना भेजी है</div>
-</div>
-</div>
+      <div class="creator">Made with ❤ by Ritesh Kale - KHCA</div>
+    </div>
+  </div>
 
-<div class="share-section">
-<p>अपनी व्यक्तिगत ग्रीटिंग दोस्तों और परिवार के साथ साझा करें</p>
-<button class="share-btn" id="whatsappShareBtn"><span>📱</span> WhatsApp पर शेयर करें</button>
-</div>
-</div>
+  <!-- BOTTOM Ad container -->
+  <div id="adBottom" class="banner-ad" aria-hidden="true">
+    <div id="adBottomFellBack" class="ad-fallback">💎 Dhanteras Deals</div>
+  </div>
 
-<div class="diya"></div>
-</div>
-
-<div class="footer">
-धन, समृद्धि और सुख-शांति की कामना के साथ
-</div>
-
-<!-- Bottom Banner Ad -->
-<div class="banner-ad">
-<script type="text/javascript">
-atOptions = {'key':'738665f713380a8ddde9b8a6af8bec3f','format':'iframe','height':60,'width':468,'params':{}};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/738665f713380a8ddde9b8a6af8bec3f/invoke.js"></script>
-<div class="ad-placeholder" id="bottomAdPlaceholder">💎 Exclusive Dhanteras Discounts - Shop Now! 💎</div>
-</div>
+  <div class="footer" style="margin-top:8px">धन, समृद्धि और सुख-शांति की कामना के साथ</div>
 
 <script>
-// Ads fallback
-setTimeout(function(){
-const topAd=document.querySelector('.banner-ad iframe');
-const bottomAd=document.querySelectorAll('.banner-ad iframe')[1];
-if(!topAd||topAd.offsetHeight===0){document.getElementById('topAdPlaceholder').style.display='block';}
-if(!bottomAd||bottomAd.offsetHeight===0){document.getElementById('bottomAdPlaceholder').style.display='block';}
-},2000);
+/* ================== CONFIG ================== */
+const AD_KEY = '738665f713380a8ddde9b8a6af8bec3f';
+const AD_SCRIPT_SRC = '//www.highperformanceformat.com/' + AD_KEY + '/invoke.js';
 
-// URL parameters handling
-const urlParams=new URLSearchParams(window.location.search);
-const senderName=urlParams.get('from');
-const senderPhoto=urlParams.get('photo');
-if(senderName){
-document.getElementById('receivedName').textContent=senderName;
-if(senderPhoto){document.getElementById('receivedPhoto').innerHTML='';document.getElementById('receivedPhoto').style.backgroundImage=`url(${senderPhoto})`;}
+/* ================ AD INJECTION ================ */
+function injectAd(containerId){
+  try{
+    const cont = document.getElementById(containerId);
+    if(!cont) return;
+    // inline atOptions
+    const s1 = document.createElement('script');
+    s1.type = 'text/javascript';
+    s1.text = "atOptions = { 'key' : '" + AD_KEY + "', 'format' : 'iframe', 'height' : 60, 'width' : 468, 'params' : {} };";
+    cont.appendChild(s1);
+    const s2 = document.createElement('script');
+    s2.type = 'text/javascript';
+    s2.src = AD_SCRIPT_SRC;
+    s2.async = true;
+    cont.appendChild(s2);
+  }catch(e){ console.warn('Ad inject failed', e); }
+}
+injectAd('adTop');
+injectAd('adBottom');
+
+// fallback to show simple placeholder if iframe doesn't appear
+setTimeout(()=>{
+  const topFrame = document.querySelector('#adTop iframe');
+  const bottomFrame = document.querySelector('#adBottom iframe');
+  if(!topFrame) document.getElementById('adTopFellBack').style.display = 'block';
+  if(!bottomFrame) document.getElementById('adBottomFellBack').style.display = 'block';
+},3500);
+
+/* ================ FALLING COINS ================ */
+const coinsContainer = document.getElementById('coins');
+function makeCoin(){
+  const c = document.createElement('div');
+  c.className = 'coin';
+  const size = 14 + Math.random()*28;
+  c.style.width = size + 'px';
+  c.style.height = size + 'px';
+  c.style.left = (Math.random()*100) + 'vw';
+  c.style.top = (-20 - Math.random()*80) + 'px';
+  c.style.fontSize = Math.max(10, size*0.55) + 'px';
+  c.style.background = 'radial-gradient(circle at 30% 30%, #ffd966, #d1a12a)';
+  c.style.animationDuration = (3 + Math.random()*4) + 's';
+  c.style.animationDelay = (Math.random()*3) + 's';
+  coinsContainer.appendChild(c);
+  setTimeout(()=> c.remove(), 8000);
+}
+for(let i=0;i<14;i++) setTimeout(makeCoin, i*200);
+setInterval(makeCoin, 900);
+
+/* ================ URL PARAMS (from & photo) ================ */
+function getParams(){
+  const q = new URLSearchParams(window.location.search);
+  return {
+    from: q.get('from') || '',
+    photo: q.get('photo') || ''
+  };
+}
+const params = getParams();
+const receivedNameEl = document.getElementById('receivedName');
+const receivedPhotoEl = document.getElementById('receivedPhoto');
+const receivedPhotoFallback = document.getElementById('receivedPhotoFallback');
+
+if(params.from){
+  try{
+    const decodedName = decodeURIComponent(params.from);
+    receivedNameEl.textContent = decodedName;
+  }catch(e){ receivedNameEl.textContent = params.from; }
+}
+if(params.photo){
+  try{
+    const decodedPhoto = decodeURIComponent(params.photo);
+    // show image inside round frame
+    receivedPhotoFallback.style.display = 'none';
+    receivedPhotoEl.style.backgroundImage = `url(${decodedPhoto})`;
+    receivedPhotoEl.style.backgroundSize = 'cover';
+    receivedPhotoEl.style.backgroundPosition = 'center';
+  }catch(e){
+    console.warn('photo decode failed', e);
+  }
 }
 
-// Gold coins animation
-const goldCoinsContainer=document.getElementById('goldCoins');
-function createCoin(){
-const coin=document.createElement('div');coin.classList.add('coin');
-const leftPos=Math.random()*100,duration=3+Math.random()*5,delay=Math.random()*5,size=30+Math.random()*20;
-coin.style.left=`${leftPos}%`;coin.style.animationDuration=`${duration}s`;coin.style.animationDelay=`${delay}s`;
-coin.style.width=`${size}px`;coin.style.height=`${size}px`;
-goldCoinsContainer.appendChild(coin);
-setTimeout(()=>{coin.remove();},(duration+delay)*1000);}
-for(let i=0;i<15;i++){createCoin();}
-setInterval(createCoin,800);
-
-// Real-time sender info
-document.getElementById('userName').addEventListener('input',function(){
-const userName=this.value.trim();document.getElementById('myNamePreview').textContent=userName||'आपका नाम';
+/* ================ IMAGE UPLOAD + COMPRESS ================ */
+let userPhotoData = '';
+const photoInput = document.getElementById('photoInput');
+photoInput.addEventListener('change', function(e){
+  const f = e.target.files && e.target.files[0];
+  if(!f) return;
+  const reader = new FileReader();
+  reader.onload = function(evt){
+    const img = new Image();
+    img.onload = function(){
+      // resize to max 400px
+      const max = 400;
+      let w = img.width, h = img.height;
+      if(w > h){ if(w > max){ h = Math.round(h * (max / w)); w = max; } }
+      else { if(h > max){ w = Math.round(w * (max / h)); h = max; } }
+      const canvas = document.createElement('canvas');
+      canvas.width = w; canvas.height = h;
+      const ctx = canvas.getContext('2d');
+      ctx.fillStyle = '#fff'; ctx.fillRect(0,0,w,h);
+      ctx.drawImage(img,0,0,w,h);
+      try{
+        userPhotoData = canvas.toDataURL('image/jpeg', 0.78);
+      }catch(e){
+        userPhotoData = canvas.toDataURL('image/png');
+      }
+      // preview
+      const preview = document.getElementById('myPhotoPreview') || document.getElementById('myPhotoPreview');
+      if(preview){
+        preview.innerHTML = '';
+        preview.style.backgroundImage = `url(${userPhotoData})`;
+        preview.style.backgroundSize = 'cover';
+        preview.style.backgroundPosition = 'center';
+      }
+    };
+    img.onerror = function(){ alert('Image load failed. Try another file.'); };
+    img.src = evt.target.result;
+  };
+  reader.readAsDataURL(f);
 });
 
-// Photo upload
-let userPhotoData='';
-document.getElementById('userPhoto').addEventListener('change',function(e){
-const file=e.target.files[0];
-if(file){const reader=new FileReader();
-reader.onload=function(e){userPhotoData=e.target.result;const myPhotoPreview=document.getElementById('myPhotoPreview');myPhotoPreview.innerHTML='';myPhotoPreview.style.backgroundImage=`url(${userPhotoData})`;};
-reader.readAsDataURL(file);}
+/* ================ CREATE SECTION FLOW ================ */
+const createBtn = document.getElementById('createBtn');
+const nameInput = document.getElementById('nameInput');
+const createSection = document.getElementById('createSection');
+const receivedSection = document.getElementById('receivedSection');
+const myNamePreview = document.getElementById('myNamePreview');
+const myPhotoPreview = document.getElementById('myPhotoPreview');
+const linkBox = document.getElementById('linkBox');
+
+createBtn.addEventListener('click', function(){
+  const name = nameInput.value.trim();
+  if(!name){ alert('कृपया अपना नाम दर्ज करें'); nameInput.focus(); return; }
+  // update preview
+  myNamePreview.textContent = name;
+  if(userPhotoData){
+    myPhotoPreview.innerHTML = '';
+    myPhotoPreview.style.backgroundImage = `url(${userPhotoData})`;
+    myPhotoPreview.style.backgroundSize = 'cover';
+    myPhotoPreview.style.backgroundPosition = 'center';
+  }else{
+    myPhotoPreview.innerHTML = '<span style="color:#d8caa6;font-weight:800">👤</span>';
+    myPhotoPreview.style.backgroundImage = '';
+  }
+  // switch sections
+  receivedSection.classList.add('hidden');
+  createSection.classList.remove('hidden');
+  createSection.removeAttribute('aria-hidden');
+  // clear link box
+  linkBox.style.display = 'none';
+  linkBox.textContent = '';
 });
 
-// Create greeting button
-document.getElementById('createGreetingBtn').addEventListener('click',function(){
-const userName=document.getElementById('userName').value.trim();
-if(!userName){alert('कृपया अपना नाम दर्ज करें');return;}
-document.getElementById('receivedView').classList.add('hidden');
-document.getElementById('createView').classList.remove('hidden');
-document.getElementById('myNamePreview').textContent=userName;
-if(userPhotoData){document.getElementById('myPhotoPreview').style.backgroundImage=`url(${userPhotoData})`;}
+/* ================ SHARE / COPY LINK ================ */
+const shareBtn = document.getElementById('shareWhatsApp');
+const copyBtn = document.getElementById('copyLinkBtn');
+
+function buildShareURL(name, photoData){
+  const base = window.location.origin + window.location.pathname;
+  let url = base + '?from=' + encodeURIComponent(name);
+  if(photoData){
+    // encode and append
+    url += '&photo=' + encodeURIComponent(photoData);
+  }
+  return url;
+}
+
+shareBtn.addEventListener('click', function(){
+  const name = nameInput.value.trim();
+  if(!name){ alert('पहले अपना नाम दर्ज करें'); nameInput.focus(); return; }
+  const shareURL = buildShareURL(name, userPhotoData);
+  const message = `*${name}* ने आपको Dhanteras की शुभकामनाएं भेजी हैं! 🪙\n\n` +
+                  `इस पावन अवसर पर, आपके जीवन में सुख, समृद्धि और धन की वर्षा हो।\n` +
+                  `धनतेरस की हार्दिक शुभकामनाएं! 💫\n\n` +
+                  `अपनी ग्रीटिंग देखें:\n${shareURL}`;
+  const wa = 'https://api.whatsapp.com/send?text=' + encodeURIComponent(message);
+  // Try Web Share API first (optional)
+  if(navigator.share && navigator.canShare && !navigator.canShare({ files: [] })){
+    // some browsers have canShare but not for files; we do text share fallback:
+    try{ navigator.share({ title: 'शुभ धनतेरस', text: message, url: shareURL }); return; } catch(e){ /*ignore*/ }
+  }
+  window.open(wa, '_blank');
 });
 
-// WhatsApp Share - Fixed
-document.getElementById('whatsappShareBtn').addEventListener('click',function(){
-const userName=document.getElementById('userName').value.trim();
-if(!userName){alert('कृपया पहले अपना नाम दर्ज करें');return;}
-const baseUrl=window.location.origin+window.location.pathname;
-const shareUrl=`${baseUrl}?from=${encodeURIComponent(userName)}`;
-const message=`*${userName}* ने आपको Dhanteras की शुभकामनाएं भेजी हैं! 🪙\n\nइस पावन अवसर पर, आपके जीवन में सुख, समृद्धि और धन की वर्षा हो।\nआपका घर हमेशा खुशियों से भरा रहे।\n\nधनतेरस की हार्दिक शुभकामनाएं! 💫\n\nअपनी ग्रीटिंग प्राप्त करें: ${shareUrl}`;
-window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`,'_blank');
+copyBtn.addEventListener('click', async function(){
+  const name = nameInput.value.trim();
+  if(!name){ alert('पहले अपना नाम दर्ज करें'); nameInput.focus(); return; }
+  const shareURL = buildShareURL(name, userPhotoData);
+  try{
+    await navigator.clipboard.writeText(shareURL);
+    linkBox.style.display = 'block';
+    linkBox.textContent = 'Link copied to clipboard — share it: ' + shareURL;
+  }catch(e){
+    linkBox.style.display = 'block';
+    linkBox.textContent = shareURL;
+  }
 });
+
+/* ================ Small UX: if page opened with from param => show personalize hint ================ */
+(function initialBehavior(){
+  if(params.from){
+    // show message and keep input visible so receiver can also "Send" (they can create their own)
+    // set focus to nameInput for convenience
+    nameInput.value = ''; // empty for receiver to enter own name
+    nameInput.placeholder = 'अपना नाम दर्ज करें और आगे share करें';
+  } else {
+    // if no from param, pre-open the personalize area (encourage to create)
+    // we keep it visible by default (it's already visible)
+  }
+})();
+
+/* ================ Warn about long links in console ================ */
+(function warnLong(){
+  if(window.location.search.length > 1600){
+    console.info('Note: This link contains embedded photo (base64) and is long. Consider using smaller photo if needed.');
+  }
+})();
 </script>
 </body>
 </html>
